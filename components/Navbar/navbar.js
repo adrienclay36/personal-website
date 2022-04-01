@@ -30,8 +30,8 @@ const Navbar = () => {
             }
             if (link.external) {
               return (
-                <Link key={link.href} href={link.href} passHref>
-                  <a rel="noreferrer" target="_blank">
+               
+                  <a key={link.href} href={link.href} rel="noreferrer" target="_blank">
                     <li
                       tabIndex={0}
                       className="mb-2 cursor-pointer tracking-widest hover:text-slate-200 text-center text-lg"
@@ -39,7 +39,7 @@ const Navbar = () => {
                       {link.text}
                     </li>
                   </a>
-                </Link>
+                
               );
             }
           })}
@@ -82,7 +82,7 @@ const navLinks = [
   },
   {
     text: "Resume",
-    href: "/ac_resume.pdf",
+    href: "/AC_Resume.pdf",
     external: true,
     icon: <HiOutlineDocumentText size={20} className="mr-2" />,
   },

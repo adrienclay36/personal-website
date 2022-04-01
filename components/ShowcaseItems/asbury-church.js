@@ -1,5 +1,4 @@
 import React from "react";
-import Image from "next/image";
 import MainButton from "../ui/main-button";
 import { AiOutlineArrowRight } from "react-icons/ai";
 import { Parallax } from "react-scroll-parallax";

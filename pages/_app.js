@@ -8,7 +8,7 @@ function MyApp({ Component, pageProps }) {
   }, []);
   return (
     <>
-      <div className="font-primaryFont bg-gradient-to-b from-gray-50 to-gray-200 w-full h-full">
+      <div className="font-primaryFont bg-gradient-to-b from-gray-50 to-gray-100 w-full h-full ">
         <ParallaxProvider>
           <Component {...pageProps} />
         </ParallaxProvider>

@@ -55,7 +55,7 @@ const HomeHero = () => {
         <div className={`mt-24 lg:mt-0 md:mt-20 ${styles.animation} -z-50`}>
           <img
             className="-z-50"
-            priority
+            
             src={"/lightbulb.png"}
             height={smallScreen ? imageSize.smallHeight : imageSize.largeHeight}
             width={smallScreen ? imageSize.smallWidth : imageSize.largeWidth}
