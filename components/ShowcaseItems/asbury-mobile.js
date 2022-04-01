@@ -6,7 +6,7 @@ import { Parallax } from "react-scroll-parallax";
 const AsburyMobile = () => {
   return (
     <Parallax speed={-10}>
-      <div className="container bg-white rounded-lg shadow-lg shadow-gray-300 p-10 mb-24 w-11/12 lg:w-full md:w-11/12">
+      <div className="container bg-white rounded-lg shadow-lg shadow-gray-300 p-10 mb-40 w-11/12 lg:w-full md:w-11/12">
         <div className="flex flex-1 flex-col lg:flex-row md:flex-col justify-center lg:justify-between md:justify-center items-center">
           <div className="text-center lg:text-left md:text-center flex flex-col items-center lg:items-start">
             <h1 className="text-3xl mb-2">asbury.mobile</h1>

@@ -1,6 +1,7 @@
 import React from "react";
 import AsburyChurch from "../ShowcaseItems/asbury-church";
 import AsburyMobile from "../ShowcaseItems/asbury-mobile";
+import PricePoint from "../ShowcaseItems/pricepoint";
 import HomeHero from "./HomeHero";
 const HomeSection = () => {
   return (
@@ -12,6 +13,7 @@ const HomeSection = () => {
       <section id="portfolio">
         <AsburyChurch />
         <AsburyMobile />
+        <PricePoint/>
       </section>
     </>
   );
