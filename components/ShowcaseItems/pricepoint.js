@@ -24,6 +24,7 @@ const PricePoint = () => {
 
           <div className="mr-0 lg:mr-8 md:mr-0 mb-6">
             <img
+            
               src={"/pricepoint.png"}
               height={1000}
               width={1000}

@@ -33,21 +33,19 @@ const HomeHero = () => {
           learning into modern designs.
         </p>
         <div className="z-50">
-
-        <ColorButton
-          backgroundColor={"bg-blue-500"}
-          textColor="text-white"
-          hoverColor="lg:hover:bg-blue-600 hover:none md:hover:none"
-          onClick={() => {
-            document
-              .getElementById("portfolio")
-              .scrollIntoView({ behavior: "smooth" });
-          }}
-          text={"Browse Portfolio"}
-          icon={<AiOutlineArrowDown className="ml-2" size={20} />}
-        />
-          </div>
-        
+          <ColorButton
+            backgroundColor={"bg-blue-500"}
+            textColor="text-white"
+            hoverColor="lg:hover:bg-blue-600 hover:none md:hover:none"
+            onClick={() => {
+              document
+                .getElementById("portfolio")
+                .scrollIntoView({ behavior: "smooth" });
+            }}
+            text={"Browse Portfolio"}
+            icon={<AiOutlineArrowDown className="ml-2" size={20} />}
+          />
+        </div>
       </div>
 
       {/* IMAGE */}
@@ -55,7 +53,7 @@ const HomeHero = () => {
         <div className={`mt-24 lg:mt-0 md:mt-20 ${styles.animation} -z-50`}>
           <img
             className="-z-50"
-            
+            loading="eager"
             src={"/lightbulb.png"}
             height={smallScreen ? imageSize.smallHeight : imageSize.largeHeight}
             width={smallScreen ? imageSize.smallWidth : imageSize.largeWidth}
