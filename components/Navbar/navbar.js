@@ -76,7 +76,7 @@ const navLinks = [
   },
   {
     text: "GitHub",
-    href: "/github",
+    href: "https://github.com/adrienclay36?tab=repositories",
     external: true,
     icon: <BsGithub size={20} className="mb-1 mr-2" />,
   },
