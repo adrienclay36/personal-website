@@ -1,13 +1,18 @@
 import React from "react";
-import ShowcaseItem from "../ShowcaseItems/showcase-item";
-import Layout from "../ui/Layout";
+import AsburyChurch from "../ShowcaseItems/asbury-church";
+import AsburyMobile from "../ShowcaseItems/asbury-mobile";
 import HomeHero from "./HomeHero";
 const HomeSection = () => {
   return (
     <>
-      <HomeHero />
-      <ShowcaseItem />
-      <ShowcaseItem />
+      <section id="heroSection">
+        <HomeHero />
+      </section>
+
+      <section id="portfolio">
+        <AsburyChurch />
+        <AsburyMobile />
+      </section>
     </>
   );
 };
