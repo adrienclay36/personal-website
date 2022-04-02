@@ -4,6 +4,7 @@ import { ParallaxProvider } from "react-scroll-parallax";
 import { polyfill } from "smoothscroll-polyfill";
 import { MantineProvider } from "@mantine/core";
 import { NotificationsProvider } from "@mantine/notifications";
+import NextNProgress from "nextjs-progressbar";
 import Head from "next/head";
 function MyApp({ Component, pageProps }) {
   useEffect(() => {
@@ -21,6 +22,7 @@ function MyApp({ Component, pageProps }) {
         <NotificationsProvider position="top-right">
           <div className="font-primaryFont bg-gradient-to-b from-gray-50 to-gray-100 w-full h-full ">
             <ParallaxProvider>
+              <NextNProgress color="#000000" />
               <Component {...pageProps} />
             </ParallaxProvider>
           </div>
