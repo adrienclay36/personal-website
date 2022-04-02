@@ -4,7 +4,8 @@ import { AiOutlineArrowDown } from "react-icons/ai";
 import MainButton from "../ui/main-button";
 import ColorButton from "../ui/color-button";
 import { useMediaQuery } from "@mantine/hooks";
-import { Parallax, useParallax } from "react-scroll-parallax";
+import { useParallax } from "react-scroll-parallax";
+import Tilt from "react-parallax-tilt";
 import styles from "./HomeHero.module.css";
 const imageSize = {
   largeWidth: 456,
@@ -15,7 +16,7 @@ const imageSize = {
 
 const HomeHero = () => {
   const smallScreen = useMediaQuery("(max-width: 900px)");
-  const parallax = useParallax({speed: smallScreen ? 0 : -15 })
+  const parallax = useParallax({ speed: smallScreen ? 0 : -15 });
   return (
     <div
       className={`container flex flex-1 flex-col lg:flex-row md:flex-col justify-between items-center mb-28 lg:mb-64 md:mb-64`}
@@ -53,14 +54,18 @@ const HomeHero = () => {
       {/* IMAGE */}
       <div ref={parallax.ref}>
         <div className={`mt-24 lg:mt-0 md:mt-20 ${styles.animation} -z-50`}>
-          <img
-            className="-z-50"
-            loading="eager"
-            src={"/lightbulb.png"}
-            height={smallScreen ? imageSize.smallHeight : imageSize.largeHeight}
-            width={smallScreen ? imageSize.smallWidth : imageSize.largeWidth}
-            alt="Hero 3D"
-          />
+          <Tilt>
+            <img
+              className="-z-50"
+              loading="eager"
+              src={"/lightbulb.png"}
+              height={
+                smallScreen ? imageSize.smallHeight : imageSize.largeHeight
+              }
+              width={smallScreen ? imageSize.smallWidth : imageSize.largeWidth}
+              alt="Hero 3D"
+            />
+          </Tilt>
         </div>
       </div>
     </div>
