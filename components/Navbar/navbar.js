@@ -103,8 +103,8 @@ const Navbar = () => {
           showNotification({
             id: "success",
             autoClose: 10000,
-            title: "Success",
-            message: "Your Email Has Been Sent!",
+            title: "Email Sent",
+            message: "I will be in touch ASAP!",
             color: "green",
           });
         } else {
