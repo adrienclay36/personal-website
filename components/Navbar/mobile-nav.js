@@ -2,23 +2,34 @@ import React from "react";
 import MobileNavItem from "./mobile-nav-item";
 import styles from "./mobile-nav.module.css";
 import { Drawer } from "@mantine/core";
-const MobileNav = ({ navLinks, isOpen, toggleMenu }) => {
+const MobileNav = ({ navLinks, isOpen, toggleMenu, setOpenModal }) => {
   return (
-    <Drawer trapFocus={false} position="bottom" opened={isOpen} onClose={toggleMenu} size="80%" style={{ paddingTop: "10px"}}>
-      <div className="container">
-        <ul
-          className={`flex flex-1 flex-col text-center uppercase px-4 overflow-hidden ${styles["last-li"]}`}
-        >
-          {navLinks.map((link) => (
-            <MobileNavItem toggleMenu={toggleMenu} key={link.text} href={link.href} external={link.external}>
-              <div className="flex flex-1 justify-center items-center">
-                {link.icon}
-                {link.text}
-              </div>
-            </MobileNavItem>
-          ))}
-        </ul>
-      </div>
+    <Drawer
+      transitionDuration={500}
+      trapFocus={false}
+      position="right"
+      opened={isOpen}
+      onClose={toggleMenu}
+    >
+      <ul
+        className={`flex flex-1 flex-col text-center px-4 overflow-hidden ${styles["last-li"]}`}
+      >
+        {navLinks.map((link) => (
+          <MobileNavItem
+            toggleMenu={toggleMenu}
+            key={link.text}
+            href={link.href}
+            contactButton={link.contactButton}
+            external={link.external}
+            setOpenModal={setOpenModal}
+          >
+            <div className="flex flex-1 justify-center items-center">
+              {link.icon}
+              {link.text}
+            </div>
+          </MobileNavItem>
+        ))}
+      </ul>
     </Drawer>
   );
 };

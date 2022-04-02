@@ -1,10 +1,13 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Burger, Modal, TextInput, Textarea, Button } from "@mantine/core";
 import { AiOutlineHome, AiOutlineMessage } from "react-icons/ai";
-import { BsGithub, BsCheckCircle } from "react-icons/bs";
+import { BsGithub, BsCheckCircleFill } from "react-icons/bs";
+import { MdError } from "react-icons/md";
+import { RiErrorWarningFill } from "react-icons/ri";
 import { HiOutlineDocumentText } from "react-icons/hi";
 import { BiErrorCircle } from "react-icons/bi";
 import { FaEnvelope } from "react-icons/fa";
+import { showNotification } from "@mantine/notifications";
 import MobileNav from "./mobile-nav";
 import Link from "next/link";
 import emailjs, { init } from "@emailjs/browser";
@@ -100,20 +103,44 @@ const Navbar = () => {
           process.env.NEXT_PUBLIC_USER_ID
         );
         if (response.status === 200) {
-          setSuccess(true);
           closeAndClear();
+          showNotification({
+            id: "success",
+            autoClose: 10000,
+            title: "Success",
+            message: "Your Email Has Been Sent!",
+            color: "green",
+          });
         } else {
-          setSuccess(false);
-          setError(true);
           closeAndClear();
+          showNotification({
+            id: "error",
+            autoClose: 10000,
+            title: "Error",
+            message:
+              "Something went wrong, please email me directly at adrienclay36@gmail.com",
+            color: "red",
+          });
         }
+
+        setLoading(false);
+        
       } catch (err) {
         closeAndClear();
-        setError(true);
+        setLoading(false);
+        showNotification({
+          id: "error",
+          autoClose: 10000,
+          title: "Error",
+          message:
+            "Something went wrong, please email me directly at adrienclay36@gmail.com",
+          color: "red",
+        });
       }
     }
-
     setLoading(false);
+
+    
   };
 
   const closeAndClear = () => {
@@ -130,6 +157,7 @@ const Navbar = () => {
     <div>
       {/* CONTACT FORM */}
       <Modal
+        trapFocus={false}
         centered
         opened={openModal}
         onClose={closeAndClear}
@@ -178,40 +206,7 @@ const Navbar = () => {
         </form>
       </Modal>
 
-      {/* SUCCESS MODAL */}
-      <Modal opened={success} onClose={() => setSuccess(false)} centered>
-        <div className="flex flex-1 justify-center items-center">
-          <BsCheckCircle size={75} className="text-green-700 mb-6" />
-        </div>
-        <p className="text-center font-semibold ">
-          Thank you for your email! I will get back to you as soon as possible!
-        </p>
-      </Modal>
-
-      {/* ERROR MODAL */}
-
-      <Modal opened={error} onClose={() => setError(false)} centered>
-        <div className="flex flex-1 justify-center items-center">
-          <BiErrorCircle size={75} className="text-red-700 mb-6" />
-        </div>
-        <p className="text-center font-semibold ">
-          Sorry, something went wrong. Feel free to shoot me an email using your
-          provider at{" "}
-          <a
-            href="mailto:adrienclay36@gmail.com"
-            rel="noreferrer"
-            target="_blank"
-            className="cursor-pointer hover:underline text-blue-800"
-          >
-            this link.
-          </a>
-        </p>
-      </Modal>
-
-
-
       {/* NAVBAR */}
-
 
       <nav className="container flex items-center py-4 mb-12">
         <ul className="hidden sm:flex flex-1 flex-wrap lg:flex-nowrap md:flex-wrap justify-center items-center gap-6 lg:gap-10 md:gap-6 text-sm mt-2 text-semibold overflow-hidden">
@@ -273,6 +268,7 @@ const Navbar = () => {
           isOpen={isOpen}
           navLinks={navLinks}
           toggleMenu={toggleMenu}
+          setOpenModal={setOpenModal}
           //   navLinks={navLinks}
         />
       </div>
