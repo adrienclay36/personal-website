@@ -7,6 +7,7 @@ import { useMediaQuery } from "@mantine/hooks";
 import { useParallax } from "react-scroll-parallax";
 import Tilt from "react-parallax-tilt";
 import styles from "./HomeHero.module.css";
+import lightbulb from "../../public/lightbulb.png";
 const imageSize = {
   largeWidth: 456,
   largeHeight: 600,
@@ -55,15 +56,17 @@ const HomeHero = () => {
       <div ref={parallax.ref}>
         <div className={`mt-24 lg:mt-0 md:mt-20 ${styles.animation} -z-50`}>
           <Tilt>
-            <img
+            <Image
+              quality={100}
               className="-z-50"
+              priority={true}
               loading="eager"
-              src={"/lightbulb.png"}
+              src={lightbulb}
               height={
                 smallScreen ? imageSize.smallHeight : imageSize.largeHeight
               }
               width={smallScreen ? imageSize.smallWidth : imageSize.largeWidth}
-              alt="Hero 3D"
+              alt="Lightbulb"
             />
           </Tilt>
         </div>
