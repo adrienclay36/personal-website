@@ -208,6 +208,11 @@ const Navbar = () => {
         </p>
       </Modal>
 
+
+
+      {/* NAVBAR */}
+
+
       <nav className="container flex items-center py-4 mb-12">
         <ul className="hidden sm:flex flex-1 flex-wrap lg:flex-nowrap md:flex-wrap justify-center items-center gap-6 lg:gap-10 md:gap-6 text-sm mt-2 text-semibold overflow-hidden">
           {navLinks.map((link) => {
@@ -292,7 +297,7 @@ const navLinks = [
   },
   {
     text: "Resume",
-    href: "/AC_Resume.pdf",
+    href: "https://www.dropbox.com/s/ysp0lt8g2fakds7/Adrien%20Clay%20-%20Resume%20Technical.pdf?dl=0",
     external: true,
     icon: <HiOutlineDocumentText size={20} className="mr-2" />,
   },
