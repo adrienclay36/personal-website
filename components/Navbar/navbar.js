@@ -1,12 +1,10 @@
-import React, { useEffect, useState } from "react";
-import { Burger, Modal, TextInput, Textarea, Button } from "@mantine/core";
+import React, { useState } from "react";
+import { Modal, TextInput, Textarea, Button } from "@mantine/core";
 import { AiOutlineHome, AiOutlineMessage } from "react-icons/ai";
-import { BsGithub, BsCheckCircleFill } from "react-icons/bs";
-import { MdError } from "react-icons/md";
-import { RiErrorWarningFill } from "react-icons/ri";
+import { BsGithub } from "react-icons/bs";
 import { HiOutlineDocumentText } from "react-icons/hi";
-import { BiErrorCircle } from "react-icons/bi";
 import { FaEnvelope } from "react-icons/fa";
+import { FiMenu } from "react-icons/fi";
 import { showNotification } from "@mantine/notifications";
 import MobileNav from "./mobile-nav";
 import Link from "next/link";
@@ -16,8 +14,6 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [openModal, setOpenModal] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [success, setSuccess] = useState(false);
-  const [error, setError] = useState(false);
   const [contactData, setContactData] = useState({
     email: "",
     message: "",
@@ -124,7 +120,6 @@ const Navbar = () => {
         }
 
         setLoading(false);
-        
       } catch (err) {
         closeAndClear();
         setLoading(false);
@@ -139,8 +134,6 @@ const Navbar = () => {
       }
     }
     setLoading(false);
-
-    
   };
 
   const closeAndClear = () => {
@@ -254,13 +247,8 @@ const Navbar = () => {
             }
           })}
         </ul>
-        <div className="flex sm:hidden flex-1 justify-end mr-3">
-          <Burger
-            size={30}
-            opened={isOpen}
-            color="black"
-            onClick={toggleMenu}
-          />
+        <div className="flex sm:hidden flex-1 justify-end mr-4 mt-2">
+          <FiMenu size={30} color="black" onClick={toggleMenu} />
         </div>
       </nav>
       <div className="sm:hidden md:block lg:block">
