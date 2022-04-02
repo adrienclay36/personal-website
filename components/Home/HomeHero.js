@@ -4,7 +4,7 @@ import { AiOutlineArrowDown } from "react-icons/ai";
 import MainButton from "../ui/main-button";
 import ColorButton from "../ui/color-button";
 import { useMediaQuery } from "@mantine/hooks";
-import { Parallax } from "react-scroll-parallax";
+import { Parallax, useParallax } from "react-scroll-parallax";
 import styles from "./HomeHero.module.css";
 const imageSize = {
   largeWidth: 456,
@@ -12,11 +12,13 @@ const imageSize = {
   smallWidth: 228,
   smallHeight: 300,
 };
+
 const HomeHero = () => {
   const smallScreen = useMediaQuery("(max-width: 900px)");
+  const parallax = useParallax({speed: smallScreen ? 0 : -15 })
   return (
     <div
-      className={`container flex flex-1 flex-col lg:flex-row md:flex-col justify-between items-center mb-64`}
+      className={`container flex flex-1 flex-col lg:flex-row md:flex-col justify-between items-center mb-28 lg:mb-64 md:mb-64`}
     >
       {/* NAME/DESCRIPTION/BUTTON */}
       <div className="flex flex-1 flex-col justify-center items-center lg:items-start md:items-center">
@@ -32,7 +34,7 @@ const HomeHero = () => {
           Developing scalable, intuitive interfaces and integrating machine
           learning into modern designs.
         </p>
-        <div className="z-50">
+        <div className="z-50 flex flex-1 flex-row justify-center items-center">
           <ColorButton
             backgroundColor={"bg-blue-500"}
             textColor="text-white"
@@ -49,7 +51,7 @@ const HomeHero = () => {
       </div>
 
       {/* IMAGE */}
-      <Parallax speed={-13}>
+      <div ref={parallax.ref}>
         <div className={`mt-24 lg:mt-0 md:mt-20 ${styles.animation} -z-50`}>
           <img
             className="-z-50"
@@ -60,7 +62,7 @@ const HomeHero = () => {
             alt="Hero 3D"
           />
         </div>
-      </Parallax>
+      </div>
     </div>
   );
 };
