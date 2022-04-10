@@ -2,14 +2,14 @@ import React from "react";
 import Link from "next/link";
 import MainButton from "../ui/main-button";
 import { AiOutlineArrowRight } from "react-icons/ai";
-import { useParallax } from "react-scroll-parallax";
+
 import { useMediaQuery } from "@mantine/hooks";
 const PricePoint = () => {
   const smallScreen = useMediaQuery("(max-width: 900px)");
-  const parallax = useParallax({ speed: smallScreen ? 0 : -10 });
+ 
   return (
     
-      <div ref={parallax.ref} className="container bg-white rounded-lg shadow-lg shadow-gray-300 p-10 mb-24 w-11/12 lg:w-full md:w-11/12">
+      <div className="container bg-white rounded-lg shadow-lg shadow-gray-300 p-10 mb-12 w-11/12 lg:w-full md:w-11/12">
         <div className="flex flex-1 flex-col lg:flex-row md:flex-col justify-center lg:justify-between md:justify-center items-center">
           <div className="text-center lg:text-left md:text-center flex flex-col items-center lg:items-start">
             <h1 className="text-3xl mb-2">pricepoint.</h1>
