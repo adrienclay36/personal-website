@@ -54,7 +54,7 @@ const ShowcaseItem = ({
           </a>
         </Link>
       </div>
-      <div className="flex flex-1 justify-end items-center">
+      <div className="flex flex-1 justify-center lg:justify-end md:justify-center items-center mt-10 lg:mt-0 md:mt-6">
         <div className={`${type === 'production' ? production : portfolio}`}>
           <p className="text-white text-center text-sm">
             {type === "production" ? "Production" : "Portfolio"}
