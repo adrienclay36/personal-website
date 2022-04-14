@@ -17,7 +17,7 @@ const showcase = [
     image: "/mac.png",
     href: "https://asbury-next-website.vercel.app/",
     type: "production",
-    buttonText: 'Visit'
+    buttonText: 'Visit Asbury'
   },
   {
     title: "asbury.mobile",
