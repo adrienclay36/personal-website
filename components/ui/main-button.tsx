@@ -1,6 +1,14 @@
 import React from 'react'
 
-const MainButton = ({ inverted, icon, text, classes, onClick }) => {
+interface MainButtonProps {
+  inverted?: boolean;
+  icon?: JSX.Element;
+  text?: string;
+  classes?: string;
+  onClick?: React.MouseEvent<HTMLButtonElement>;
+}
+
+const MainButton = ({ inverted, icon, text, classes, onClick = () => {} }) => {
   return (
     <div className="text-center lg:text-left md:text-center">
       <button

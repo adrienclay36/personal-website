@@ -5,13 +5,14 @@ import Tilt from "react-parallax-tilt";
 import { useMediaQuery } from "@mantine/hooks";
 import { AiOutlineHome } from "react-icons/ai";
 import { useRouter } from "next/router";
+import { NextPage } from "next";
 const imageSize = {
   largeWidth: 456,
   largeHeight: 600,
   smallWidth: 228,
   smallHeight: 300,
 };
-const CustomErrorPage = () => {
+const CustomErrorPage: NextPage = () => {
   const smallScreen = useMediaQuery("(max-width: 900px)");
   const router = useRouter();
   return (

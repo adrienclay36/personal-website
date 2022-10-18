@@ -1,6 +1,16 @@
 import React from "react";
 import { useRouter } from "next/router";
-const MobileNavItem = (props) => {
+
+interface MobileNavItemProps {
+  children: React.ReactNode;
+  toggleMenu: () => void;
+  href: string;
+  contactButton: boolean;
+  external: boolean;
+  setOpenModal: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const MobileNavItem: React.FC<MobileNavItemProps> = (props) => {
   const router = useRouter();
 
   if (props?.contactButton) {

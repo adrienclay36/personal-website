@@ -1,6 +1,15 @@
 import React from 'react'
 
-const ColorButton = ({ textColor, hoverColor, backgroundColor, icon, text, classes, onClick }) => {
+interface Props {
+  textColor?: string;
+  hoverColor?: string;
+  backgroundColor?: string;
+  icon?: JSX.Element;
+  text: string;
+  classes?: string;
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
+}
+const ColorButton: React.FC<Props> = ({ textColor, hoverColor, backgroundColor, icon, text, classes, onClick }) => {
   return (
     <div className="text-center lg:text-left md:text-center z-50">
       <button

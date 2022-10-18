@@ -9,6 +9,7 @@ import { showNotification } from "@mantine/notifications";
 import MobileNav from "./mobile-nav";
 import Link from "next/link";
 import emailjs, { init } from "@emailjs/browser";
+import { NavLinks } from "../../models/nav-links";
 init(process.env.NEXT_PUBLIC_USER_ID);
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -23,7 +24,7 @@ const Navbar = () => {
     nameIsValid: true,
   });
 
-  const toggleMenu = () => {
+  const toggleMenu = (): void => {
     setIsOpen(!isOpen);
   };
 
@@ -266,7 +267,7 @@ const Navbar = () => {
 
 export default Navbar;
 
-const navLinks = [
+const navLinks: NavLinks[] = [
   {
     text: "Home",
     href: "/",
@@ -281,7 +282,7 @@ const navLinks = [
   },
   {
     text: "Resume",
-    href: "https://www.dropbox.com/s/ysp0lt8g2fakds7/Adrien%20Clay%20-%20Resume%20Technical.pdf?dl=0",
+    href: "https://www.dropbox.com/s/fi9ge77z6l6ip6o/Adrien%20Clay%20-%20Resume%20Technical.pdf?dl=0",
     external: true,
     icon: <HiOutlineDocumentText size={20} className="mr-2" />,
   },

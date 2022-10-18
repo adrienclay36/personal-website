@@ -2,7 +2,15 @@ import React from "react";
 import MobileNavItem from "./mobile-nav-item";
 import styles from "./mobile-nav.module.css";
 import { Drawer } from "@mantine/core";
-const MobileNav = ({ navLinks, isOpen, toggleMenu, setOpenModal }) => {
+import { NavLinks } from '../../models/nav-links';
+interface MobileNavProps {
+  navLinks: NavLinks[];
+  isOpen: boolean;
+  toggleMenu: () => void;
+  setOpenModal: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const MobileNav: React.FC<MobileNavProps> = ({ navLinks, isOpen, toggleMenu, setOpenModal }) => {
   return (
     <Drawer
       transitionDuration={500}

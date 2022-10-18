@@ -16,7 +16,7 @@ const imageSize = {
 
 const HomeHero = () => {
   const smallScreen = useMediaQuery("(max-width: 900px)");
-  const parallax = useParallax({ speed: smallScreen ? 0 : -15 });
+  const parallax = useParallax<HTMLElement>({ speed: smallScreen ? 0 : -15 });
   return (
     <div
       className={`container flex flex-1 flex-col lg:flex-row md:flex-col justify-between items-center mb-28 lg:mb-64 md:mb-64`}
@@ -52,7 +52,7 @@ const HomeHero = () => {
       </div>
 
       {/* IMAGE */}
-      <div ref={parallax.ref}>
+      <div ref={parallax.ref as any}>
         <div className={`mt-24 lg:mt-0 md:mt-20 ${styles.animation} -z-50`}>
           <Tilt>
             <img
